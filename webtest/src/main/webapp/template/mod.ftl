@@ -1,5 +1,3 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -21,7 +19,7 @@
   
   <body>
     <h1>编辑film</h1>
-    <form action="<c:url value='/FilmServlet?method=updateFilm'/>" method="post">
+    <form action="http://localhost:8080/webtest/FilmServlet?method=updateFilm" method="post">
     	<input type="hidden" name="method" value="edit"/>
     	<input type="hidden" name="film_id" value="${film.film_id}" />
     	title：<input type="text" name="title" value="${film.title}"/><br/>
@@ -29,5 +27,7 @@
     	language：<input type="text" name="name" value="${film.name}"/><br>
     	<input type="submit" value="编辑film"/>
     </form>
+  
+    
   </body>
 </html>

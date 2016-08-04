@@ -1,0 +1,35 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>修改分类</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+<style type="text/css">
+	body {background: rgb(254,238,189);}
+</style>
+  </head>
+  
+  <body>
+    <h1>编辑film</h1>
+    <form action="<c:url value='/FilmServlet?method=updateFilm'/>" method="post">
+    	<input type="hidden" name="method" value="edit"/>
+    	<input type="hidden" name="film_id" value="${film.film_id}" />
+    	title：<input type="text" name="title" value="${film.title}"/><br/>
+    	description：<input type="text" name="description" value="${film.description}"/><br/>
+    	language：<input type="text" name="name" value="${film.name}"/><br>
+    	<input type="submit" value="编辑film"/>
+    </form>
+  
+    
+  </body>
+</html>
