@@ -1,5 +1,5 @@
 1.数据库配置文件：src/main/resources/c3p0.xml
-2.在项目目录下使用maven命令：mvn jetty:run 运行（第一次可能出现GBK异常，从新在启动一次就可以）
+2.在项目目录下使用maven命令：mvn jetty:run 运行
 3.在浏览器输入：http://localhost:8080/index.jsp
 
 注：由于用模版生成静态页面时路径是tomcat下的路径所以将项目倒入 eclipse之后才能访问到静态页面   在浏览器输入：http://localhost:8080/webtest/index.jsp

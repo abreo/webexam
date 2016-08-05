@@ -33,6 +33,7 @@ E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\dao\impl\FilmDaoIm
 E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\domain\Rental.java
 E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\domain\Category.java
 E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\util\filter\GetRequest.java
+E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\domain\PageBean.java
 E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\domain\City.java
 E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\domain\Language.java
 E:\springmvcWorkspace\webtest\src\main\java\com\aim\filmstore\service\BaseService.java
