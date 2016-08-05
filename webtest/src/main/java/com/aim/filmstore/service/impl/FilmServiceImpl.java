@@ -8,6 +8,7 @@ import com.aim.filmstore.dao.impl.FilmDaoImpl;
 import com.aim.filmstore.dao.impl.LanguageDaoImpl;
 import com.aim.filmstore.domain.Film;
 import com.aim.filmstore.domain.Language;
+import com.aim.filmstore.domain.PageBean;
 import com.aim.filmstore.service.FilmService;
 import com.aim.filmstore.util.jdbc.JdbcUtils;
 
@@ -23,9 +24,27 @@ public class FilmServiceImpl extends BaseServiceImpl implements FilmService {
 		setDao(languageDao);
 	}
 
-	public List<Film> loadAllFile() {
-		String hql = "SELECT f.film_id,f.title,f.description,l.name FROM film f,LANGUAGE l WHERE f.language_id=l.language_id";
-		return filmDao.findEntityByHQL(hql);
+	public PageBean<Film> loadAllFile(int pc, int ps) {
+
+		/*
+		 * 1.设置PagerBean对象 2.设置pb的pc和ps 3.得到tr，设置给pb 4.得到beanList，设置给pb 5.返回pb
+		 */
+		PageBean<Film> pb = new PageBean<Film>();
+		pb.setPc(pc);
+		pb.setPs(ps);
+
+		/*
+		 * 得到tr
+		 */
+		String hql = "select count(*) from film";
+		int tr = filmDao.getCount(hql);
+		pb.setTr(tr);
+
+		String hql1 = "SELECT * FROM (SELECT f.film_id,f.title,f.description,l.name FROM film f,LANGUAGE l WHERE f.language_id=l.language_id)f LIMIT ?,?";
+		Object obj[]={(pc-1)*ps,ps};
+		List<Film> beanList = filmDao.findEntityByHQL(hql1,obj);
+		pb.setBeanList(beanList);
+		return pb;
 	}
 
 	public void deleteFilm(int film_id) {
@@ -44,7 +63,6 @@ public class FilmServiceImpl extends BaseServiceImpl implements FilmService {
 			String hql3 = "DELETE FROM film_category WHERE film_id=?";
 			filmDao.deleteEntity(hql3, film_id);
 
-			
 			String hql4 = "DELETE FROM film WHERE film_id=?";
 			filmDao.deleteEntity(hql4, film_id);
 			JdbcUtils.commitTransaction();

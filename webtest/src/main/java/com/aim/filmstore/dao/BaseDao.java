@@ -17,6 +17,6 @@ public interface BaseDao<T> {
 
 	public List<T> findEntityByHQL(String hql, Object... objects);
 
-	public int getCount(String hql, Object... objects);
+	public int getCount(String hql);
 
 }

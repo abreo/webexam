@@ -94,15 +94,17 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		return tab;
 	}
 
-	public int getCount(String hql, Object... objects) {
-		int tab=0;
+	public int getCount(String hql) {
+		Number tab=0;
 		try {
-			tab=(int) qr.query(hql,new ScalarHandler(),objects);
+			tab= (Number) qr.query(hql,new ScalarHandler());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return tab;
+		
+		int tab1=tab.intValue();
+		return tab1;
 	}
 
 }

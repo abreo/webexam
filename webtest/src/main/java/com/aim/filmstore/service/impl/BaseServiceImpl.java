@@ -48,8 +48,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public int getCount(String hql, Object... objects) {
-		return baseDao.getCount(hql, objects);
+	public int getCount(String hql) {
+		return baseDao.getCount(hql);
 	}
 
 }
