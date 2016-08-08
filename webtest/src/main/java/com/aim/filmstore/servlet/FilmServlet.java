@@ -131,14 +131,14 @@ public class FilmServlet extends BaseServlet {
 		try {
 			Configuration cfg = new Configuration();
 
-			cfg.setDirectoryForTemplateLoading(new File(path+"template"));
+			cfg.setDirectoryForTemplateLoading(new File(path+"/template"));
 
 			Map<String, Object> root = new HashMap<String, Object>();
 
 			root.put("film", filmService.findFilm(film_id));
 
 			Template t1 = cfg.getTemplate("mod.ftl");
-            File file=new File(path+"adminjsps/admin/category","mod.html");
+            File file=new File(path+"/adminjsps/admin/category","mod.html");
             if(!file.exists()){
             	file.createNewFile();
             }
